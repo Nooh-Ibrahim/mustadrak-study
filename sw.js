@@ -5,19 +5,25 @@
 // - صفحات الـ HTML: من النت الأول (عشان التحديث يوصل)، ولو مفيش نت من المحفوظ.
 // - الباقي (PDF، وأيقونات، وخطوط): من المحفوظ الأول.
 // - مابيلمسش localStorage خالص، فالتقدّم بتاع المواد بيفضل زي ما هو.
-const VERSION = 2;
-const SHELL = "hub-v" + VERSION;
-const CONTENT = "hub-content";
+// الأسامي فيها mustadrak-study لأن كل مواقع nooh-ibrahim.github.io بتتشارك نفس المخزن.
+const VERSION = 3;
+const PREFIX = "mustadrak-study-";
+const SHELL = PREFIX + "v" + VERSION;
+const CONTENT = PREFIX + "content";
 const FILES = [
   "./",
   "index.html",
+  "site.css",
+  "stats.js",
+  "me.js",
+  "guide.html",
+  "guide.pdf",
   "manifest.webmanifest",
   "icons/icon-180.png",
   "icons/icon-192.png",
   "icons/icon-512.png",
   "icons/icon-maskable-512.png",
-  "icons/stamp-lg-l.webp",
-  "icons/stamp-lg-d.webp",
+  "icons/seal-ai.webp",
   "fonts/plex-ar-400.woff2",
   "fonts/plex-ar-700.woff2",
   "fonts/plex-lat-400.woff2",
@@ -36,7 +42,8 @@ self.addEventListener("install", (e) => {
 async function cleanup() {
   const content = await caches.open(CONTENT);
   for (const k of await caches.keys()) {
-    if (!k.startsWith("hub-v") || k === SHELL) continue;
+    if (k.startsWith("hub-")) { await caches.delete(k); continue; } // من اللينكات القديمة
+    if (!k.startsWith(PREFIX + "v") || k === SHELL) continue;
     const old = await caches.open(k);
     for (const req of await old.keys()) {
       if (/\/(courses|pdfs)\//.test(req.url) && !(await content.match(req))) await content.put(req, await old.match(req));
@@ -49,8 +56,9 @@ self.addEventListener("activate", (e) => {
   e.waitUntil(cleanup().then(() => self.clients.claim()));
 });
 
+// الصفحات وملفات الـ JS والـ CSS من النت الأول (عشان أي تعديل يوصل)، والباقي من المحفوظ الأول.
 function isPage(req) {
-  return req.mode === "navigate" || (req.headers.get("accept") || "").includes("text/html");
+  return req.mode === "navigate" || (req.headers.get("accept") || "").includes("text/html") || /\.(js|css)$/.test(new URL(req.url).pathname);
 }
 function cacheFor(url) {
   return caches.open(/\/(courses|pdfs)\//.test(url) ? CONTENT : SHELL);

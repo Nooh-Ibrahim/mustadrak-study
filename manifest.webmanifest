@@ -1,14 +1,14 @@
 {
-  "name": "ملفات المذاكرة · Group A",
-  "short_name": "مذاكرة Group A",
-  "description": "ملفات مذاكرة Group A: كلية الذكاء الاصطناعي، جامعة الدلتا.",
+  "name": "الملفات الدراسية · مُستدرِك",
+  "short_name": "الملفات الدراسية",
+  "description": "الملفات الدراسية لدفعة 2030، كلية الذكاء الاصطناعي، جامعة الدلتا. من مُستدرِك.",
   "id": "/mustadrak-study/",
   "start_url": "/mustadrak-study/",
   "scope": "/mustadrak-study/",
   "display": "standalone",
   "lang": "ar",
   "dir": "rtl",
-  "background_color": "#F7F3EA",
+  "background_color": "#0F1D3A",
   "theme_color": "#0F1D3A",
   "icons": [
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },

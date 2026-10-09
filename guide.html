@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>شرح الموقع · الملفات الدراسية</title>
+<meta name="description" content="الموقع ده إيه، والفرق بين الملفات، وإزاي يشتغل من غير نت.">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<script>
+// ?page=2 = صفحة واحدة بمقاسها (للصور)، و ?print = الكل للـ PDF. الاتنين فاتح دايماً.
+(function(){var q=location.search,r=document.documentElement;
+  if(/page=|print/.test(q)){r.setAttribute("data-theme","light");r.className="shot"+(/print/.test(q)?" print":"");}
+  else{try{var t=localStorage.getItem("hub-theme");if(t==="light"||t==="dark")r.setAttribute("data-theme",t)}catch(e){}}})();
+</script>
+<link rel="stylesheet" href="site.css">
+<style>
+/* الصفحة: على الموبايل والكمبيوتر بتتمد عادي، وفي الصور والطباعة مقاسها ثابت 810×1440 */
+.pages{display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+.page{position:relative;width:100%;max-width:810px;background:var(--glass);border:2px solid var(--rule);border-radius:1.4rem;box-shadow:var(--shadow);
+  padding:1.1em 1.1em 1em;font-size:17px;line-height:1.6;display:flex;flex-direction:column}
+@media (min-width:600px){.page{font-size:19px;padding:1.4em 1.5em 1.2em}}
+.ph{display:flex;align-items:center;gap:.7em;border-bottom:3px solid var(--gold);padding-bottom:.6em;margin-bottom:.9em}
+.ph .chip{width:3.3em;height:3.3em;margin:0;flex:none}
+.ph .k{font-size:.85em;font-weight:700;color:var(--gold-ink);letter-spacing:.02em}
+.ph h1{font-size:1.75em;line-height:1.25}
+.h{font-size:1.2em;font-weight:700;margin:1em 0 .5em;display:flex;align-items:center;gap:.45em}
+.h::before{content:"";width:.3em;height:1.05em;border-radius:1em;background:var(--gold)}
+.box{background:var(--surface);border:2px solid var(--rule);border-radius:1em;padding:.7em .85em}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.6em}
+.why{display:flex;align-items:center;gap:.55em;line-height:1.35}
+.why svg{flex:none;width:2.1em;height:2.1em}
+.qrrow{display:flex;align-items:center;gap:1em}
+.qr{flex:none;width:6.5em;height:6.5em;color:#0F1D3A;background:#fff;padding:.4em;border-radius:.6em;border:2px solid var(--rule)}
+.url{font-weight:700;color:var(--blue);line-height:1.35;font-size:1.05em}
+table{width:100%;border-collapse:separate;border-spacing:0;border:2px solid var(--ink);border-radius:1em;overflow:hidden;background:var(--surface)}
+th,td{padding:.45em .5em;text-align:center;border-bottom:1.5px solid var(--rule);line-height:1.35}
+tr:last-child td{border-bottom:0}
+th{background:var(--acc);color:var(--on-acc);font-weight:700;font-size:.95em}
+td:first-child{text-align:right;font-weight:700}
+.y{color:var(--ok);font-weight:700}.n{color:var(--bad);font-weight:700}.m{color:var(--muted);font-size:.85em}
+.flow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.4em}
+.flow .box{text-align:center;line-height:1.4}
+.arrow{color:var(--muted);font-size:1.4em;font-weight:700}
+.b-net{background:var(--bluebg);border-color:transparent}.b-save{background:var(--gold-soft);border-color:transparent}.b-ok{background:var(--okbg);border-color:transparent}.b-bad{background:var(--badbg);border-color:transparent}
+.state{border-radius:.8em;padding:.4em .7em;font-weight:700;line-height:1.4}
+.state.s-ok{border:2px solid var(--ok);color:var(--ok)}.state.s-no{border:2px dashed var(--muted);color:var(--muted)}
+ol{margin:.2em 0 0;padding-inline-start:1.3em}ol li{margin:.15em 0}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:.4em}
+.step{background:var(--surface);border:2px solid var(--gold);border-radius:.9em;padding:.5em .35em;text-align:center;line-height:1.35;font-size:.92em}
+.step .num{display:grid;place-items:center;width:1.7em;height:1.7em;border-radius:50%;background:var(--acc);color:var(--on-acc);font-weight:700;margin:0 auto .3em}
+@media (max-width:599px){.steps{grid-template-columns:1fr}.step{display:flex;align-items:center;gap:.6em;text-align:right}.step .num{margin:0;flex:none}.flow{grid-template-columns:1fr}.flow .arrow{transform:rotate(-90deg);justify-self:center}.grid2:not(.keep){grid-template-columns:1fr}}
+.qa .q{font-weight:700}.qa .a{color:var(--muted);margin-bottom:.45em}
+.pf{margin-top:auto;padding-top:.7em;border-top:3px solid var(--gold);display:flex;align-items:center;justify-content:space-between;gap:.6em;font-size:.85em;color:var(--muted)}
+.pf .pn{font-weight:700;color:var(--gold-ink)}
+.tools{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:space-between;margin-bottom:1rem}
+.dl{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
+
+/* الصور والطباعة */
+html.shot body{background:var(--paper) var(--pcb)}
+html.shot .wrap{max-width:none;padding:0}
+html.shot .tools{display:none}
+html.shot .pages{gap:0}
+html.shot .page{width:810px;max-width:none;height:1440px;font-size:24.5px;border:0;border-radius:0;box-shadow:none;padding:1.4em 1.5em 1.1em;background:transparent}
+html.shot:not(.print) .page{display:none}
+html.shot:not(.print) .page.on{display:flex}
+html.shot .page>*{flex-shrink:0}
+html.shot .steps{grid-template-columns:repeat(5,1fr)}
+html.shot .step{display:block;text-align:center}html.shot .step .num{margin:0 auto .3em}
+html.shot .flow{grid-template-columns:1fr auto 1fr}html.shot .flow .arrow{transform:none}
+html.shot .grid2{grid-template-columns:1fr 1fr}
+@page{size:810px 1440px;margin:0}
+@media print{html,body{background:var(--paper) var(--pcb)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.page{break-after:page}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="tools">
+  <a class="pill-btn" href="./">→ الصفحة الرئيسية</a>
+  <span style="display:flex;gap:.5rem;flex-wrap:wrap">
+    <a class="pill-btn dl" href="guide.pdf" download="شرح_الملفات_الدراسية.pdf">تحميل الشرح</a>
+    <button type="button" class="theme" id="theme">الوضع الغامق</button>
+  </span>
+</div>
+
+<div class="pages">
+
+<!-- ١ -->
+<section class="page" id="p1">
+  <header class="ph"><svg class="chip" viewBox="0 0 96 96" aria-hidden="true"><g class="pins" stroke-width="4.5" stroke-linecap="round"><path d="M30 6v12M42 6v12M54 6v12M66 6v12M30 78v12M42 78v12M54 78v12M66 78v12M6 30h12M6 42h12M6 54h12M6 66h12M78 30h12M78 42h12M78 54h12M78 66h12"/></g><rect class="die" x="18" y="18" width="60" height="60" rx="11"/><g class="meem" transform="translate(26 26) scale(1.375)" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 16a7 7 0 1 0-7 7"/><path d="M16 21a5 5 0 1 0-5-5"/><path d="M23 16v8"/></g></svg><div><p class="k">من مُستدرِك · دفعة 2030</p><h1>لينك واحد لكل المواد</h1></div></header>
+
+  <div class="box qrrow">
+    <svg class="qr" viewBox="0 0 33 33" shape-rendering="crispEdges" role="img" aria-label="كود QR للينك الموقع"><path fill="currentColor" d="M0,0h1v1h-1zM1,0h1v1h-1zM2,0h1v1h-1zM3,0h1v1h-1zM4,0h1v1h-1zM5,0h1v1h-1zM6,0h1v1h-1zM10,0h1v1h-1zM11,0h1v1h-1zM16,0h1v1h-1zM18,0h1v1h-1zM19,0h1v1h-1zM20,0h1v1h-1zM21,0h1v1h-1zM23,0h1v1h-1zM26,0h1v1h-1zM27,0h1v1h-1zM28,0h1v1h-1zM29,0h1v1h-1zM30,0h1v1h-1zM31,0h1v1h-1zM32,0h1v1h-1zM0,1h1v1h-1zM6,1h1v1h-1zM9,1h1v1h-1zM15,1h1v1h-1zM16,1h1v1h-1zM18,1h1v1h-1zM21,1h1v1h-1zM22,1h1v1h-1zM26,1h1v1h-1zM32,1h1v1h-1zM0,2h1v1h-1zM2,2h1v1h-1zM3,2h1v1h-1zM4,2h1v1h-1zM6,2h1v1h-1zM8,2h1v1h-1zM9,2h1v1h-1zM10,2h1v1h-1zM14,2h1v1h-1zM15,2h1v1h-1zM19,2h1v1h-1zM20,2h1v1h-1zM21,2h1v1h-1zM26,2h1v1h-1zM28,2h1v1h-1zM29,2h1v1h-1zM30,2h1v1h-1zM32,2h1v1h-1zM0,3h1v1h-1zM2,3h1v1h-1zM3,3h1v1h-1zM4,3h1v1h-1zM6,3h1v1h-1zM8,3h1v1h-1zM9,3h1v1h-1zM10,3h1v1h-1zM11,3h1v1h-1zM18,3h1v1h-1zM19,3h1v1h-1zM22,3h1v1h-1zM23,3h1v1h-1zM24,3h1v1h-1zM26,3h1v1h-1zM28,3h1v1h-1zM29,3h1v1h-1zM30,3h1v1h-1zM32,3h1v1h-1zM0,4h1v1h-1zM2,4h1v1h-1zM3,4h1v1h-1zM4,4h1v1h-1zM6,4h1v1h-1zM8,4h1v1h-1zM9,4h1v1h-1zM12,4h1v1h-1zM13,4h1v1h-1zM14,4h1v1h-1zM15,4h1v1h-1zM16,4h1v1h-1zM20,4h1v1h-1zM22,4h1v1h-1zM23,4h1v1h-1zM26,4h1v1h-1zM28,4h1v1h-1zM29,4h1v1h-1zM30,4h1v1h-1zM32,4h1v1h-1zM0,5h1v1h-1zM6,5h1v1h-1zM8,5h1v1h-1zM9,5h1v1h-1zM11,5h1v1h-1zM13,5h1v1h-1zM14,5h1v1h-1zM17,5h1v1h-1zM19,5h1v1h-1zM21,5h1v1h-1zM26,5h1v1h-1zM32,5h1v1h-1zM0,6h1v1h-1zM1,6h1v1h-1zM2,6h1v1h-1zM3,6h1v1h-1zM4,6h1v1h-1zM5,6h1v1h-1zM6,6h1v1h-1zM8,6h1v1h-1zM10,6h1v1h-1zM12,6h1v1h-1zM14,6h1v1h-1zM16,6h1v1h-1zM18,6h1v1h-1zM20,6h1v1h-1zM22,6h1v1h-1zM24,6h1v1h-1zM26,6h1v1h-1zM27,6h1v1h-1zM28,6h1v1h-1zM29,6h1v1h-1zM30,6h1v1h-1zM31,6h1v1h-1zM32,6h1v1h-1zM8,7h1v1h-1zM10,7h1v1h-1zM14,7h1v1h-1zM16,7h1v1h-1zM19,7h1v1h-1zM20,7h1v1h-1zM21,7h1v1h-1zM22,7h1v1h-1zM0,8h1v1h-1zM2,8h1v1h-1zM3,8h1v1h-1zM4,8h1v1h-1zM5,8h1v1h-1zM6,8h1v1h-1zM11,8h1v1h-1zM12,8h1v1h-1zM13,8h1v1h-1zM17,8h1v1h-1zM19,8h1v1h-1zM22,8h1v1h-1zM24,8h1v1h-1zM26,8h1v1h-1zM27,8h1v1h-1zM28,8h1v1h-1zM29,8h1v1h-1zM30,8h1v1h-1zM0,9h1v1h-1zM1,9h1v1h-1zM2,9h1v1h-1zM3,9h1v1h-1zM7,9h1v1h-1zM9,9h1v1h-1zM13,9h1v1h-1zM16,9h1v1h-1zM17,9h1v1h-1zM18,9h1v1h-1zM19,9h1v1h-1zM23,9h1v1h-1zM24,9h1v1h-1zM26,9h1v1h-1zM27,9h1v1h-1zM29,9h1v1h-1zM30,9h1v1h-1zM31,9h1v1h-1zM32,9h1v1h-1zM1,10h1v1h-1zM4,10h1v1h-1zM5,10h1v1h-1zM6,10h1v1h-1zM8,10h1v1h-1zM10,10h1v1h-1zM11,10h1v1h-1zM12,10h1v1h-1zM13,10h1v1h-1zM14,10h1v1h-1zM15,10h1v1h-1zM17,10h1v1h-1zM20,10h1v1h-1zM21,10h1v1h-1zM24,10h1v1h-1zM28,10h1v1h-1zM30,10h1v1h-1zM31,10h1v1h-1zM2,11h1v1h-1zM3,11h1v1h-1zM5,11h1v1h-1zM8,11h1v1h-1zM11,11h1v1h-1zM13,11h1v1h-1zM16,11h1v1h-1zM17,11h1v1h-1zM18,11h1v1h-1zM20,11h1v1h-1zM21,11h1v1h-1zM22,11h1v1h-1zM24,11h1v1h-1zM25,11h1v1h-1zM28,11h1v1h-1zM29,11h1v1h-1zM30,11h1v1h-1zM31,11h1v1h-1zM1,12h1v1h-1zM2,12h1v1h-1zM4,12h1v1h-1zM6,12h1v1h-1zM7,12h1v1h-1zM8,12h1v1h-1zM10,12h1v1h-1zM11,12h1v1h-1zM14,12h1v1h-1zM16,12h1v1h-1zM19,12h1v1h-1zM20,12h1v1h-1zM23,12h1v1h-1zM25,12h1v1h-1zM27,12h1v1h-1zM28,12h1v1h-1zM29,12h1v1h-1zM31,12h1v1h-1zM3,13h1v1h-1zM4,13h1v1h-1zM9,13h1v1h-1zM12,13h1v1h-1zM13,13h1v1h-1zM15,13h1v1h-1zM17,13h1v1h-1zM18,13h1v1h-1zM21,13h1v1h-1zM23,13h1v1h-1zM26,13h1v1h-1zM30,13h1v1h-1zM31,13h1v1h-1zM32,13h1v1h-1zM1,14h1v1h-1zM2,14h1v1h-1zM4,14h1v1h-1zM6,14h1v1h-1zM8,14h1v1h-1zM9,14h1v1h-1zM11,14h1v1h-1zM15,14h1v1h-1zM16,14h1v1h-1zM18,14h1v1h-1zM20,14h1v1h-1zM24,14h1v1h-1zM25,14h1v1h-1zM26,14h1v1h-1zM27,14h1v1h-1zM28,14h1v1h-1zM29,14h1v1h-1zM31,14h1v1h-1zM0,15h1v1h-1zM2,15h1v1h-1zM9,15h1v1h-1zM12,15h1v1h-1zM13,15h1v1h-1zM15,15h1v1h-1zM21,15h1v1h-1zM25,15h1v1h-1zM26,15h1v1h-1zM27,15h1v1h-1zM29,15h1v1h-1zM30,15h1v1h-1zM0,16h1v1h-1zM6,16h1v1h-1zM10,16h1v1h-1zM14,16h1v1h-1zM15,16h1v1h-1zM17,16h1v1h-1zM22,16h1v1h-1zM24,16h1v1h-1zM25,16h1v1h-1zM27,16h1v1h-1zM28,16h1v1h-1zM29,16h1v1h-1zM32,16h1v1h-1zM0,17h1v1h-1zM1,17h1v1h-1zM2,17h1v1h-1zM3,17h1v1h-1zM8,17h1v1h-1zM10,17h1v1h-1zM11,17h1v1h-1zM13,17h1v1h-1zM19,17h1v1h-1zM20,17h1v1h-1zM22,17h1v1h-1zM23,17h1v1h-1zM26,17h1v1h-1zM27,17h1v1h-1zM29,17h1v1h-1zM30,17h1v1h-1zM31,17h1v1h-1zM32,17h1v1h-1zM1,18h1v1h-1zM3,18h1v1h-1zM6,18h1v1h-1zM7,18h1v1h-1zM8,18h1v1h-1zM10,18h1v1h-1zM13,18h1v1h-1zM15,18h1v1h-1zM18,18h1v1h-1zM20,18h1v1h-1zM22,18h1v1h-1zM26,18h1v1h-1zM27,18h1v1h-1zM28,18h1v1h-1zM30,18h1v1h-1zM31,18h1v1h-1zM0,19h1v1h-1zM3,19h1v1h-1zM5,19h1v1h-1zM8,19h1v1h-1zM9,19h1v1h-1zM10,19h1v1h-1zM11,19h1v1h-1zM12,19h1v1h-1zM21,19h1v1h-1zM22,19h1v1h-1zM23,19h1v1h-1zM25,19h1v1h-1zM26,19h1v1h-1zM27,19h1v1h-1zM28,19h1v1h-1zM29,19h1v1h-1zM30,19h1v1h-1zM31,19h1v1h-1zM2,20h1v1h-1zM3,20h1v1h-1zM5,20h1v1h-1zM6,20h1v1h-1zM7,20h1v1h-1zM10,20h1v1h-1zM12,20h1v1h-1zM13,20h1v1h-1zM14,20h1v1h-1zM15,20h1v1h-1zM18,20h1v1h-1zM19,20h1v1h-1zM21,20h1v1h-1zM23,20h1v1h-1zM28,20h1v1h-1zM29,20h1v1h-1zM31,20h1v1h-1zM32,20h1v1h-1zM0,21h1v1h-1zM1,21h1v1h-1zM2,21h1v1h-1zM7,21h1v1h-1zM9,21h1v1h-1zM12,21h1v1h-1zM14,21h1v1h-1zM15,21h1v1h-1zM16,21h1v1h-1zM20,21h1v1h-1zM21,21h1v1h-1zM23,21h1v1h-1zM26,21h1v1h-1zM29,21h1v1h-1zM30,21h1v1h-1zM32,21h1v1h-1zM0,22h1v1h-1zM3,22h1v1h-1zM5,22h1v1h-1zM6,22h1v1h-1zM8,22h1v1h-1zM9,22h1v1h-1zM10,22h1v1h-1zM11,22h1v1h-1zM12,22h1v1h-1zM13,22h1v1h-1zM19,22h1v1h-1zM25,22h1v1h-1zM26,22h1v1h-1zM27,22h1v1h-1zM30,22h1v1h-1zM31,22h1v1h-1zM0,23h1v1h-1zM2,23h1v1h-1zM5,23h1v1h-1zM7,23h1v1h-1zM16,23h1v1h-1zM18,23h1v1h-1zM19,23h1v1h-1zM20,23h1v1h-1zM21,23h1v1h-1zM23,23h1v1h-1zM24,23h1v1h-1zM26,23h1v1h-1zM29,23h1v1h-1zM30,23h1v1h-1zM31,23h1v1h-1zM32,23h1v1h-1zM0,24h1v1h-1zM2,24h1v1h-1zM3,24h1v1h-1zM6,24h1v1h-1zM10,24h1v1h-1zM11,24h1v1h-1zM12,24h1v1h-1zM17,24h1v1h-1zM19,24h1v1h-1zM22,24h1v1h-1zM24,24h1v1h-1zM25,24h1v1h-1zM26,24h1v1h-1zM27,24h1v1h-1zM28,24h1v1h-1zM31,24h1v1h-1zM32,24h1v1h-1zM8,25h1v1h-1zM9,25h1v1h-1zM11,25h1v1h-1zM12,25h1v1h-1zM13,25h1v1h-1zM16,25h1v1h-1zM17,25h1v1h-1zM18,25h1v1h-1zM19,25h1v1h-1zM20,25h1v1h-1zM24,25h1v1h-1zM28,25h1v1h-1zM30,25h1v1h-1zM32,25h1v1h-1zM0,26h1v1h-1zM1,26h1v1h-1zM2,26h1v1h-1zM3,26h1v1h-1zM4,26h1v1h-1zM5,26h1v1h-1zM6,26h1v1h-1zM9,26h1v1h-1zM10,26h1v1h-1zM11,26h1v1h-1zM15,26h1v1h-1zM16,26h1v1h-1zM17,26h1v1h-1zM22,26h1v1h-1zM23,26h1v1h-1zM24,26h1v1h-1zM26,26h1v1h-1zM28,26h1v1h-1zM30,26h1v1h-1zM31,26h1v1h-1zM0,27h1v1h-1zM6,27h1v1h-1zM8,27h1v1h-1zM9,27h1v1h-1zM12,27h1v1h-1zM15,27h1v1h-1zM16,27h1v1h-1zM17,27h1v1h-1zM18,27h1v1h-1zM23,27h1v1h-1zM24,27h1v1h-1zM28,27h1v1h-1zM29,27h1v1h-1zM30,27h1v1h-1zM31,27h1v1h-1zM32,27h1v1h-1zM0,28h1v1h-1zM2,28h1v1h-1zM3,28h1v1h-1zM4,28h1v1h-1zM6,28h1v1h-1zM8,28h1v1h-1zM9,28h1v1h-1zM10,28h1v1h-1zM13,28h1v1h-1zM15,28h1v1h-1zM16,28h1v1h-1zM19,28h1v1h-1zM20,28h1v1h-1zM21,28h1v1h-1zM22,28h1v1h-1zM24,28h1v1h-1zM25,28h1v1h-1zM26,28h1v1h-1zM27,28h1v1h-1zM28,28h1v1h-1zM29,28h1v1h-1zM31,28h1v1h-1zM32,28h1v1h-1zM0,29h1v1h-1zM2,29h1v1h-1zM3,29h1v1h-1zM4,29h1v1h-1zM6,29h1v1h-1zM8,29h1v1h-1zM9,29h1v1h-1zM10,29h1v1h-1zM11,29h1v1h-1zM12,29h1v1h-1zM13,29h1v1h-1zM14,29h1v1h-1zM15,29h1v1h-1zM17,29h1v1h-1zM18,29h1v1h-1zM21,29h1v1h-1zM23,29h1v1h-1zM25,29h1v1h-1zM28,29h1v1h-1zM30,29h1v1h-1zM32,29h1v1h-1zM0,30h1v1h-1zM2,30h1v1h-1zM3,30h1v1h-1zM4,30h1v1h-1zM6,30h1v1h-1zM8,30h1v1h-1zM9,30h1v1h-1zM10,30h1v1h-1zM12,30h1v1h-1zM13,30h1v1h-1zM14,30h1v1h-1zM15,30h1v1h-1zM16,30h1v1h-1zM18,30h1v1h-1zM20,30h1v1h-1zM21,30h1v1h-1zM23,30h1v1h-1zM26,30h1v1h-1zM27,30h1v1h-1zM29,30h1v1h-1zM30,30h1v1h-1zM0,31h1v1h-1zM6,31h1v1h-1zM11,31h1v1h-1zM12,31h1v1h-1zM13,31h1v1h-1zM15,31h1v1h-1zM18,31h1v1h-1zM21,31h1v1h-1zM22,31h1v1h-1zM23,31h1v1h-1zM25,31h1v1h-1zM26,31h1v1h-1zM28,31h1v1h-1zM29,31h1v1h-1zM30,31h1v1h-1zM0,32h1v1h-1zM1,32h1v1h-1zM2,32h1v1h-1zM3,32h1v1h-1zM4,32h1v1h-1zM5,32h1v1h-1zM6,32h1v1h-1zM8,32h1v1h-1zM10,32h1v1h-1zM11,32h1v1h-1zM12,32h1v1h-1zM15,32h1v1h-1zM16,32h1v1h-1zM17,32h1v1h-1zM22,32h1v1h-1zM23,32h1v1h-1zM24,32h1v1h-1zM25,32h1v1h-1zM27,32h1v1h-1zM31,32h1v1h-1z"/></svg>
+    <div><p><b>الملفات الدراسية</b> لكل المواد في مكان واحد.</p><span class="url en">nooh-ibrahim.github.io<br>/mustadrak-study/</span><p class="m">احفظه، أو الأحسن: ضيفه لشاشة موبايلك.</p></div>
+  </div>
+
+  <p class="h">ليه الموقع؟</p>
+  <div class="grid2 keep">
+    <div class="box why"><svg viewBox="0 0 48 48" fill="none" stroke="var(--gold-ink)" stroke-width="3.4" stroke-linecap="round"><path d="M20 28l8-8"/><path d="M17 22l-4 4a6 6 0 0 0 9 9l4-4"/><path d="M31 26l4-4a6 6 0 0 0-9-9l-4 4"/></svg><span><b>لينك واحد</b> بدل لينك لكل مادة</span></div>
+    <div class="box why"><svg viewBox="0 0 48 48" fill="none" stroke="var(--gold-ink)" stroke-width="3.4" stroke-linecap="round"><path d="M8 20a23 23 0 0 1 32 0"/><path d="M14 27a14 14 0 0 1 20 0"/><circle cx="24" cy="34" r="2.5" fill="var(--gold-ink)"/></svg><span>بيفتح <b>من غير نت</b></span></div>
+    <div class="box why"><svg viewBox="0 0 48 48" fill="none" stroke="var(--gold-ink)" stroke-width="3.4"><rect x="14" y="5" width="20" height="38" rx="4"/><rect x="19" y="14" width="10" height="10" rx="2.5" fill="var(--gold-ink)"/></svg><span><b>أيقونة</b> على موبايلك زي التطبيق</span></div>
+    <div class="box why"><svg viewBox="0 0 48 48" fill="none" stroke="var(--gold-ink)" stroke-width="3.4" stroke-linecap="round"><path d="M37 19a14 14 0 0 0-25-4l-2 3"/><path d="M10 9v9h9"/><path d="M11 29a14 14 0 0 0 25 4l2-3"/><path d="M38 39v-9h-9"/></svg><span>التحديث <b>بيوصل لوحده</b></span></div>
+  </div>
+
+  <p class="h">الفرق بين الملفات</p>
+  <table>
+    <tr><th></th><th>الموقع</th><th>نسخة الطباعة</th><th>لينك كلود القديم</th></tr>
+    <tr><td>أسئلة وتدريب وامتحان</td><td class="y">✓</td><td class="n">✗</td><td class="y">✓</td></tr>
+    <tr><td>بيحفظ إجاباتك</td><td class="y">✓</td><td class="n">✗</td><td class="y">✓</td></tr>
+    <tr><td>من غير نت</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
+    <tr><td>آخر تحديث</td><td class="y">✓ الأول</td><td class="y">✓</td><td class="m">بعد الموقع</td></tr>
+    <tr><td>تطبعه أو تقراه على ورق</td><td class="m">زرار بينزّله</td><td class="y">✓</td><td class="n">✗</td></tr>
+  </table>
+  <div class="box b-save" style="margin-top:.7em"><b>ابدأ بالموقع</b>، وخد نسخة الطباعة لما تحتاج ورق. وملف الصفحة اللي كان بيتبعت في الجروب مش محتاجه تاني: الموقع بقى مكانه.</div>
+
+  <footer class="pf"><span>إعداد: نوح · كلية الذكاء الاصطناعي · جامعة الدلتا</span><span class="pn en">1 / 3</span></footer>
+</section>
+
+<!-- ٢ -->
+<section class="page" id="p2">
+  <header class="ph"><svg class="chip" viewBox="0 0 96 96" aria-hidden="true"><g class="pins" stroke-width="4.5" stroke-linecap="round"><path d="M30 6v12M42 6v12M54 6v12M66 6v12M30 78v12M42 78v12M54 78v12M66 78v12M6 30h12M6 42h12M6 54h12M6 66h12M78 30h12M78 42h12M78 54h12M78 66h12"/></g><rect class="die" x="18" y="18" width="60" height="60" rx="11"/><g class="meem" transform="translate(26 26) scale(1.375)" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 16a7 7 0 1 0-7 7"/><path d="M16 21a5 5 0 1 0-5-5"/><path d="M23 16v8"/></g></svg><div><p class="k">من مُستدرِك · دفعة 2030</p><h1>إزاي بيفتح من غير نت</h1></div></header>
+
+  <div class="flow">
+    <div class="box b-net">أول مرة تفتح المادة <b>بالنت</b></div><span class="arrow">←</span><div class="box b-save">موبايلك <b>بيحفظ نسخة</b> منها لوحده</div>
+  </div>
+  <p style="text-align:center;font-weight:700;margin:.6em 0 .4em">وبعد كده، كل ما تفتحها:</p>
+  <div class="grid2 keep">
+    <div class="box b-net" style="text-align:center"><b>فيه نت؟</b><br>بيجيبلك <b>آخر تحديث</b></div>
+    <div class="box b-ok" style="text-align:center"><b>مفيش نت؟</b><br>بيفتح <b>النسخة المحفوظة</b></div>
+  </div>
+
+  <p class="h">افتح كل مادة مرة بالنت</p>
+  <p>على الصفحة الرئيسية، تحت كل مادة مكتوب هي محفوظة ولا لأ:</p>
+  <div class="grid2" style="margin-top:.4em">
+    <div class="state s-ok">الفيزياء<br>✓ محفوظة، وبتفتح من غير نت</div>
+    <div class="state s-no">الجبر الخطي<br>افتحها مرة بالنت عشان تتحفظ</div>
+  </div>
+
+  <p class="h">هيصرف باقة قد إيه؟</p>
+  <div class="box">
+    <p>كل مادة بتنزل <b>مرة واحدة بس</b>، حوالي <b>6 ميجا</b>، ولما تفتحها إنت بس.</p>
+    <p style="margin-top:.3em">ولما مادة تتحدّث: بينزل <b>ملف المادة دي بس</b>، والنسخة القديمة <b>بتتمسح</b> وتتحط الجديدة مكانها. يعني المساحة على موبايلك مابتكبرش.</p>
+  </div>
+
+  <p class="h">ضيفه لشاشة موبايلك</p>
+  <div class="grid2">
+    <div class="box"><b>آيفون (سفاري بس)</b>
+      <ol><li>افتح الموقع في <b>سفاري</b>.</li><li>دوس <b>المشاركة</b> (مربع طالع منه سهم). مش لاقيه؟ دوس <b>التلات نقط</b> الأول.</li><li><b>«إضافة إلى الشاشة الرئيسية»</b>، وبعدها <b>«إضافة»</b>.</li></ol></div>
+    <div class="box"><b>أندرويد (كروم)</b>
+      <ol><li>افتح الموقع في <b>كروم</b>.</li><li>دوس <b>التلات نقط</b> اللي فوق.</li><li><b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b>.</li></ol></div>
+  </div>
+
+  <footer class="pf"><span>وعلى الكمبيوتر؟ افتح اللينك عادي، وخلاص.</span><span class="pn en">2 / 3</span></footer>
+</section>
+
+<!-- ٣ -->
+<section class="page" id="p3">
+  <header class="ph"><svg class="chip" viewBox="0 0 96 96" aria-hidden="true"><g class="pins" stroke-width="4.5" stroke-linecap="round"><path d="M30 6v12M42 6v12M54 6v12M66 6v12M30 78v12M42 78v12M54 78v12M66 78v12M6 30h12M6 42h12M6 54h12M6 66h12M78 30h12M78 42h12M78 54h12M78 66h12"/></g><rect class="die" x="18" y="18" width="60" height="60" rx="11"/><g class="meem" transform="translate(26 26) scale(1.375)" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 16a7 7 0 1 0-7 7"/><path d="M16 21a5 5 0 1 0-5-5"/><path d="M23 16v8"/></g></svg><div><p class="k">من مُستدرِك · دفعة 2030</p><h1>إجاباتك، وإزاي تنقلها</h1></div></header>
+
+  <p class="h">محفوظة فين؟</p>
+  <div class="box b-save">على <b>موبايلك إنت بس</b>. محدش يقدر يشوفها، ومفيش حساب ولا باسورد.</div>
+  <div class="grid2" style="margin-top:.6em">
+    <div class="box b-bad"><b>⚠ على الآيفون</b><br>سفاري والأيقونة <b>كل واحد ليه حفظ لوحده</b>. اختار واحد وذاكر منه دايماً، والأحسن الأيقونة.</div>
+    <div class="box b-ok"><b>نسخة احتياطية كل أسبوع</b><br>تاب «تقدّمي»، و«صدّر تقدّمي»، وابعت الكود لنفسك. لو مسحت بيانات المتصفح، الإجابات بتتمسح.</div>
+  </div>
+
+  <p class="h">ذاكرت قبل كده في لينكات كلود؟</p>
+  <p>انقل إجاباتك للموقع في دقيقة، لكل مادة:</p>
+  <div class="steps" style="margin-top:.4em">
+    <div class="step"><span class="num en">1</span><span>افتح المادة من <b>اللينك القديم</b></span></div>
+    <div class="step"><span class="num en">2</span><span>تاب «تقدّمي» ودوس <b>«صدّر تقدّمي»</b></span></div>
+    <div class="step"><span class="num en">3</span><span><b>انسخ الكود</b></span></div>
+    <div class="step"><span class="num en">4</span><span>افتح نفس المادة من <b>الموقع</b></span></div>
+    <div class="step"><span class="num en">5</span><span><b>«استرجع تقدّمي»</b> والزق الكود</span></div>
+  </div>
+
+  <p class="h">أسئلة سريعة</p>
+  <div class="qa">
+    <p class="q">لينكات كلود القديمة هتقفل؟</p><p class="a">لأ، بس الموقع هو الأساسي من النهارده، وهو اللي بيتحدّث الأول.</p>
+    <p class="q">أشوف وقت مذاكرتي فين؟</p><p class="a">في قسم «وقتي» على الصفحة الرئيسية: النهاردة، وكل يوم، وكل مادة.</p>
+    <p class="q">لقيت غلط أو مشكلة؟</p><p class="a">كلّم نوح على واتساب، أو اكتبها في الجروب.</p>
+  </div>
+
+  <footer class="pf"><span>إعداد: نوح · ومذاكرة موفّقة 🤍</span><span class="pn en">3 / 3</span></footer>
+</section>
+
+</div>
+</div>
+
+<script>
+(function () {
+  var r = document.documentElement, m = /page=(\d+)/.exec(location.search);
+  if (m) { var p = document.getElementById("p" + m[1]); if (p) p.classList.add("on"); return; }
+  if (r.classList.contains("shot")) return;
+  var btn = document.getElementById("theme");
+  function isDark() { var t = r.getAttribute("data-theme"); return t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
+  function label() { btn.textContent = isDark() ? "الوضع الفاتح" : "الوضع الغامق"; }
+  btn.addEventListener("click", function () { var t = isDark() ? "light" : "dark"; r.setAttribute("data-theme", t); try { localStorage.setItem("hub-theme", t); } catch (e) {} label(); });
+  label();
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js", { scope: "./" }).catch(function () {});
+  var s = document.createElement("script"); s.src = "stats.js"; s.setAttribute("data-page", "guide"); document.body.appendChild(s);
+})();
+</script>
+</body>
+</html>
