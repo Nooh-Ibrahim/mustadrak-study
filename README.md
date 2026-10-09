@@ -1,7 +1,7 @@
 # group-a-study-hub
 Group A Study Hub — Interactive study materials · A Mustadrak project
 
-**الموقع:** https://nooh-ibrahim.github.io/group-a-study-hub/
+**الموقع:** https://nooh-ibrahim.github.io/mustadrak/
 
 ## الموقع ده إيه
 ملفات مذاكرة Group A (كلية الذكاء الاصطناعي، جامعة الدلتا) في لينك واحد ثابت.
