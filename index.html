@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ملفات المذاكرة · Group A</title>
+<meta name="description" content="ملفات مذاكرة Group A: كلية الذكاء الاصطناعي، جامعة الدلتا.">
+<meta name="hub-version" content="1">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="مذاكرة Group A">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#F7F3EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1530" media="(prefers-color-scheme: dark)">
+<script>try{var t=localStorage.getItem("hub-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<style>
+@font-face{font-family:"IBM Plex Sans Arabic";font-weight:400;font-display:swap;src:url(fonts/plex-ar-400.woff2) format("woff2");unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:"IBM Plex Sans Arabic";font-weight:400;font-display:swap;src:url(fonts/plex-lat-400.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"IBM Plex Sans Arabic";font-weight:700;font-display:swap;src:url(fonts/plex-ar-700.woff2) format("woff2");unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:"IBM Plex Sans Arabic";font-weight:700;font-display:swap;src:url(fonts/plex-lat-700.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+:root{
+  --paper:#F7F3EA;--surface:#FFFDF8;--ink:#0F1D3A;--muted:#4E5874;--rule:#DCD2BC;--hover:#EFE7D4;
+  --acc:#0F1D3A;--on-acc:#F3E3B5;--gold:#D0AE62;--gold-ink:#86651B;--gold-soft:#F4E8C8;--soon:#E9E3D4;
+  --ok:#1E7046;--okbg:#E4F2EA;
+  --shadow:0 1px 0 rgba(15,29,58,.06),0 6px 18px -10px rgba(15,29,58,.25);
+  --f-ui:"IBM Plex Sans Arabic","Segoe UI","Noto Sans Arabic",Tahoma,"Geeza Pro",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0B1530;--surface:#111D3B;--ink:#EFE7D3;--muted:#A8B1C8;--rule:#26365C;--hover:#172548;
+  --acc:#D0AE62;--on-acc:#0B1530;--gold:#D0AE62;--gold-ink:#E4C987;--gold-soft:#272716;--soon:#18264A;
+  --ok:#72D49C;--okbg:#15301F;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 8px 22px -12px rgba(0,0,0,.6);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0B1530;--surface:#111D3B;--ink:#EFE7D3;--muted:#A8B1C8;--rule:#26365C;--hover:#172548;
+  --acc:#D0AE62;--on-acc:#0B1530;--gold:#D0AE62;--gold-ink:#E4C987;--gold-soft:#272716;--soon:#18264A;
+  --ok:#72D49C;--okbg:#15301F;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 8px 22px -12px rgba(0,0,0,.6);color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:19px;line-height:1.75;
+  padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.wrap{max-width:46rem;margin:0 auto;padding:1rem 16px 2.5rem}
+.en{direction:ltr;unicode-bidi:isolate;display:block}
+h1,h2,h3,p{margin:0}
+/* فوق */
+.top{display:flex;justify-content:flex-start;margin-bottom:.4rem}
+.theme{font:inherit;font-size:1rem;font-weight:700;color:var(--ink);background:var(--surface);border:2px solid var(--rule);border-radius:2rem;min-height:2.75rem;padding:.2rem 1rem;cursor:pointer}
+.theme:hover{border-color:var(--gold)}
+.hero{text-align:center;padding:.4rem 0 1.4rem}
+.stamp{width:9.5rem;height:9.5rem;margin:0 auto .6rem;display:block}
+.stamp.d{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stamp.l{display:none}:root:not([data-theme="light"]) .stamp.d{display:block}}
+:root[data-theme="dark"] .stamp.l{display:none}:root[data-theme="dark"] .stamp.d{display:block}
+.hero h1{font-size:1.9rem;line-height:1.35;color:var(--ink)}
+.hero .tag{font-size:1rem;font-weight:700;letter-spacing:.12em;color:var(--gold-ink);margin-top:.2rem}
+.hero .sub{color:var(--muted);margin-top:.2rem}
+/* كروت */
+.card{background:var(--surface);border:2px solid var(--rule);border-radius:1.2rem;padding:1.1rem 1.15rem;box-shadow:var(--shadow);margin-bottom:1rem}
+.card h2{font-size:1.3rem;line-height:1.45;margin-bottom:.5rem}
+.sec{font-size:1.15rem;font-weight:700;color:var(--muted);margin:1.6rem 0 .6rem}
+.course.live{border-color:var(--gold);background:linear-gradient(160deg,var(--surface),var(--gold-soft))}
+.code{text-align:right}
+.course .code{font-weight:700;color:var(--gold-ink);font-size:.95rem}
+.course h2{margin:.1rem 0 .2rem}
+.course .meta{color:var(--muted);font-size:1rem}
+.go{display:flex;align-items:center;justify-content:center;width:100%;min-height:3.6rem;margin-top:.9rem;border-radius:1rem;background:var(--acc);color:var(--on-acc);
+  font-size:1.35rem;font-weight:700;text-decoration:none;box-shadow:var(--shadow)}
+.go:hover{filter:brightness(1.08)}
+.go:focus-visible,.pdf:focus-visible,.theme:focus-visible,.soc:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.pdf{display:flex;flex-direction:column;align-items:center;margin:.7rem auto 0;width:fit-content;min-height:2.75rem;padding:.35rem 1.2rem;border-radius:.9rem;border:2px solid var(--rule);
+  color:var(--ink);text-decoration:none;font-weight:700;font-size:1rem;line-height:1.4;background:var(--surface)}
+.pdf .en{font-size:1rem;font-weight:400;color:var(--muted)}
+.pdf:hover{border-color:var(--gold)}
+.soonlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.7rem}
+.soonlist .card{margin:0;background:var(--soon);box-shadow:none;opacity:.9}
+.soonlist h2{font-size:1.1rem;margin:0}
+.badge{display:inline-block;margin-top:.4rem;font-size:1rem;font-weight:700;color:var(--muted);border:1.5px dashed var(--muted);border-radius:2rem;padding:0 .7rem}
+ol{margin:.2rem 0 0;padding-inline-start:1.5rem}
+ol li{margin:.25rem 0}
+.how h3{font-size:1.05rem;margin:.8rem 0 .1rem;color:var(--gold-ink)}
+.how h3:first-of-type{margin-top:.2rem}
+.note{margin-top:.7rem;padding:.6rem .85rem;border-radius:.8rem;background:var(--gold-soft);border-inline-start:4px solid var(--gold);font-size:1rem}
+b{font-weight:700}
+.offline{display:none;text-align:center;font-size:1rem;font-weight:700;color:var(--ok);background:var(--okbg);border-radius:.8rem;padding:.4rem .8rem;margin:0 0 1rem}
+.offline.on{display:block}
+/* تحت */
+.credit{text-align:center;margin-top:2rem}
+.credit h2{font-size:1.25rem}
+.credit p{color:var(--muted);font-size:1rem}
+.socs{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.7rem}
+.soc{display:inline-flex;align-items:center;gap:.45rem;min-height:2.8rem;padding:.25rem .9rem;border-radius:2rem;border:2px solid var(--rule);background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700;font-size:1rem;direction:ltr}
+.soc svg{width:1.3rem;height:1.3rem}
+.soc:hover{border-color:var(--gold)}
+.soc.wa{color:#1f9d55}.soc.ig{color:#c13584}.soc.fb{color:#1877f2}.soc.li{color:#0a66c2}.soc.gh{color:var(--ink)}
+.soc span{color:var(--ink)}
+.ver{margin-top:1.2rem;text-align:center;color:var(--muted);font-size:1rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><button type="button" class="theme" id="theme">الوضع الغامق</button></div>
+
+<header class="hero">
+  <img class="stamp l" src="icons/stamp-lg-l.webp" width="152" height="152" alt="ختم Group A: كلية الذكاء الاصطناعي، جامعة الدلتا">
+  <img class="stamp d" src="icons/stamp-lg-d.webp" width="152" height="152" alt="ختم Group A: كلية الذكاء الاصطناعي، جامعة الدلتا">
+  <h1>ملفات المذاكرة</h1>
+  <p class="tag en">GROUP A · CLASS OF 2030</p>
+  <p class="sub">كلية الذكاء الاصطناعي · جامعة الدلتا</p>
+</header>
+
+<p class="offline" id="offline">✓ الموقع اتحفظ على جهازك، وبيفتح من غير نت.</p>
+
+<main>
+<section class="card course live" aria-labelledby="c-bas116">
+  <p class="code en">BAS116</p>
+  <h2 id="c-bas116">أساسيات الكهرباء والإلكترونيات</h2>
+  <p class="meta">دروس، وبنك أسئلة، وامتحان محاكاة.</p>
+  <a class="go" href="courses/BAS116_Electronics.html">ابدأ المذاكرة</a>
+  <a class="pdf" href="pdfs/BAS116_Electronics.pdf" download>تحميل نسخة الطباعة<span class="en">PDF · 1.3 MB</span></a>
+</section>
+
+<h2 class="sec">مواد جاية</h2>
+<div class="soonlist">
+  <div class="card"><p class="code en">BAS114</p><h2>الفيزياء</h2><span class="badge">قريباً</span></div>
+  <div class="card"><p class="code en">CSC115</p><h2>مقدمة في نظم الحاسب</h2><span class="badge">قريباً</span></div>
+  <div class="card"><p class="code en">BAS112</p><h2>التفاضل والتكامل</h2><span class="badge">قريباً</span></div>
+  <div class="card"><p class="code en">BAS113</p><h2>الجبر الخطي</h2><span class="badge">قريباً</span></div>
+</div>
+
+<h2 class="sec">قبل ما تبدأ</h2>
+<section class="card how" aria-labelledby="h-add">
+  <h2 id="h-add">إزاي تضيف الموقع للشاشة الرئيسية</h2>
+  <p>بيبقى أيقونة زي أي تطبيق، <b>وبيفتح من غير نت</b> بعد أول مرة.</p>
+  <h3>آيفون (سفاري)</h3>
+  <ol>
+    <li>افتح الموقع في <b>سفاري</b>، وافتح المادة مرة.</li>
+    <li>دوس زرار <b>المشاركة</b> (المربع اللي طالع منه سهم).</li>
+    <li>اختار <b>«إضافة إلى الشاشة الرئيسية»</b>، وبعدها <b>«إضافة»</b>.</li>
+  </ol>
+  <h3>أندرويد (كروم)</h3>
+  <ol>
+    <li>افتح الموقع في <b>كروم</b>، وافتح المادة مرة.</li>
+    <li>دوس <b>القايمة</b> (التلات نقط اللي فوق).</li>
+    <li>اختار <b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b>.</li>
+  </ol>
+  <p class="note">على الآيفون، الأيقونة ليها حفظ لوحدها غير سفاري. فلو ذاكرت في سفاري الأول، انقل تقدّمك للأيقونة بالطريقة اللي تحت.</p>
+</section>
+
+<section class="card how" aria-labelledby="h-move">
+  <h2 id="h-move">عندك تقدّم في لينك كلود؟</h2>
+  <p>تقدر تنقل إجاباتك وعلاماتك للموقع ده في دقيقة:</p>
+  <ol>
+    <li>افتح المادة من <b>اللينك القديم</b>.</li>
+    <li>روح تاب <b>«تقدّمي»</b>، وتحت <b>«انقل تقدّمي»</b> دوس <b>«صدّر تقدّمي»</b>.</li>
+    <li><b>انسخ الكود</b> اللي هيظهر.</li>
+    <li>افتح المادة من <b>الموقع ده</b> (ومن الأيقونة لو ضفتها).</li>
+    <li>في نفس المكان دوس <b>«استرجع تقدّمي»</b>، والزق الكود.</li>
+  </ol>
+</section>
+</main>
+
+<footer class="credit" aria-labelledby="cr-h">
+  <h2 id="cr-h">إعداد: نـوح</h2>
+  <p>لو لقيت غلط أو عندك اقتراح، كلّمني:</p>
+  <div class="socs"><a class="soc wa" href="https://wa.me/201114232172" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.6 7.4c.3-.6.6-.6.9-.6h.6c.2 0 .4.1.5.4l.8 1.9c.1.2 0 .5-.1.7l-.6.7c.6 1.2 1.6 2.2 2.8 2.8l.7-.6c.2-.2.5-.2.7-.1l1.9.8c.3.1.4.3.4.6v.6c0 .4-.1.7-.6.9-1.2.6-3 .3-4.8-1.1a9.7 9.7 0 0 1-3.2-3.9c-.6-1.4-.6-2.4 0-3.1Z" fill="currentColor"/></svg><span>WhatsApp</span></a><a class="soc ig" href="https://www.instagram.com/nooh.m.ibrahim/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg><span>Instagram</span></a><a class="soc fb" href="https://www.facebook.com/profile.php?id=61594278003270" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3a21 21 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21Z" fill="currentColor"/></svg><span>Facebook</span></a><a class="soc li" href="https://www.linkedin.com/in/nooh-m-ibrahim/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7.3 10v7M7.3 7v.01M11 17v-7M11 13c0-1.8 1-3 2.6-3S16.7 11 16.7 13v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>LinkedIn</span></a><a class="soc gh" href="https://github.com/Nooh-Ibrahim" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.6.6-3.2-1.2-3.2-1.2-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.1-.2-4.3-1-4.3-4.7 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.2 4.5-4.3 4.7.3.3.6.9.6 1.8v2.6c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" fill="currentColor"/></svg><span>GitHub</span></a></div>
+  <p class="ver" id="ver">إصدار الموقع: 1</p>
+</footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement, btn = document.getElementById("theme");
+  function isDark() {
+    var t = root.getAttribute("data-theme");
+    return t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function label() { btn.textContent = isDark() ? "الوضع الفاتح" : "الوضع الغامق"; }
+  btn.addEventListener("click", function () {
+    var t = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", t);
+    try { localStorage.setItem("hub-theme", t); } catch (e) {}
+    label();
+  });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", label);
+  label();
+
+  // الشغل من غير نت: الـ Service Worker على الموقع كله، وبيحفظ الملفات أول مرة.
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js", { scope: "./" }).catch(function (e) { console.warn("sw:", e); });
+    navigator.serviceWorker.ready.then(function () { return check(0); });
+  }
+  function check(n) {
+    // الرسالة بتظهر لما ملف المادة يبقى محفوظ فعلاً.
+    return caches.match("courses/BAS116_Electronics.html", { ignoreSearch: true }).then(function (r) {
+      if (r) document.getElementById("offline").classList.add("on");
+      else if (n < 20) setTimeout(function () { check(n + 1); }, 1500);
+    });
+  }
+})();
+</script>
+</body>
+</html>

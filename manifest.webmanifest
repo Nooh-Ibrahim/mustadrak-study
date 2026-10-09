@@ -1,0 +1,19 @@
+{
+  "name": "ملفات المذاكرة · Group A",
+  "short_name": "مذاكرة Group A",
+  "description": "ملفات مذاكرة Group A: كلية الذكاء الاصطناعي، جامعة الدلتا.",
+  "id": "/group-a-study-hub/",
+  "start_url": "/group-a-study-hub/",
+  "scope": "/group-a-study-hub/",
+  "display": "standalone",
+  "lang": "ar",
+  "dir": "rtl",
+  "background_color": "#F7F3EA",
+  "theme_color": "#0F1D3A",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-180.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
