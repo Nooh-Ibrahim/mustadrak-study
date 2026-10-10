@@ -3,7 +3,7 @@
 // - وبيبعتها لعدّاد مُستدرِك على Cloudflare (ومن غير نت بتستنى في mst-q لحد ما النت يرجع).
 // - mst-dev رقم عشوائي للجهاز، و mst-name و mst-phone اللي الطالب كتبهم في كارت الاسم.
 // مابيلمسش أي مفتاح تاني في localStorage (تقدّم المواد زي ما هو).
-// ملفات المواد هتستخدم نفس الملف ده بعد جلسة الدمج، بنفس المفاتيح، فالوقت جوّه المواد هيظهر في «وقتي» لوحده.
+// ملفات المواد فيها نفس المنطق (core/stats.js في المحرّك)، بنفس المفاتيح، فالوقت جوّه المواد بيظهر في «وقتي» لوحده.
 (function () {
   "use strict";
   var EP = "https://mustadrak-stats.mustadrak.workers.dev";
@@ -31,7 +31,7 @@
     addLog(page, kind === "beat" ? secs : 0, kind === "view" ? 1 : 0);
     if (!SEND) return;
     q.push({ dev: dev, ses: ses, page: page, kind: kind, secs: secs || 0, t: Date.now(), app: app, mob: mob });
-    if (q.length > 300) q = q.slice(-300);
+    if (q.length > 3000) q = q.slice(-3000); // من غير نت: لحد حوالي يومين مذاكرة بيستنوا النت
     set("mst-q", JSON.stringify(q));
   }
   var busy = false;
@@ -74,11 +74,7 @@
   });
   addEventListener("online", function () { flush(); });
 
-  // فتح مادة من الصفحة الرئيسية بيتحسب زيارة للمادة دي
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest("a[data-stat]");
-    if (a) { push(a.getAttribute("data-stat"), "view"); flush(true); }
-  });
+  // فتح المادة ووقتها بيتحسبوا من جوّه ملف المادة نفسه (core/stats.js في المحرّك)، فالرئيسية مابتحسبهمش عشان مايتحسبوش مرتين
 
   window.MST = {
     log: function () { return getJ("mst-log", {}); },

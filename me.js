@@ -31,14 +31,19 @@
     if (!/^01[0125]\d{8}$/.test(phone)) { err.textContent = "رقم الواتساب لازم يبقى 11 رقم ويبدأ بـ 01."; err.hidden = false; return; }
     err.hidden = true;
     if (window.MST) window.MST.setWho(name, phone); else { set("mst-name", name); set("mst-phone", phone); set("mst-who-sent", "0"); }
-    $("who").hidden = true; hello();
+    $("who").hidden = true; document.documentElement.classList.remove("gate"); hello();
   }
   $("who-form").addEventListener("submit", saveWho);
-  $("who-later").addEventListener("click", function () { $("who").hidden = true; try { sessionStorage.setItem("mst-later", "1"); } catch (e) {} });
+  // المادة المقفولة: الضغط عليها (أو على أي لينك جوّاها) بيودّي لكارت التسجيل
+  document.addEventListener("click", function (e) {
+    if (!document.documentElement.classList.contains("gate") || !e.target.closest || !e.target.closest(".course")) return;
+    e.preventDefault(); $("who").scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(function () { $("who-name").focus(); }, 400);
+  }, true);
+  // «إلغاء» بيظهر بس وانت بتعدّل اسم موجود (من غير اسم الكارت إجباري ومفيهوش إلغاء)
+  $("who-later").addEventListener("click", function () { $("who").hidden = true; });
   $("edit-who").addEventListener("click", function () { openWho(true); $("who").scrollIntoView({ behavior: "smooth", block: "center" }); });
   hello();
-  var later = false; try { later = sessionStorage.getItem("mst-later") === "1"; } catch (e) {}
-  if (!get("mst-name") && !later) openWho(false);
+  if (!get("mst-name")) openWho(false);
 
   // ---------- وقتي ----------
   function fmt(s) {

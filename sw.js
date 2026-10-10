@@ -6,7 +6,7 @@
 // - الباقي (PDF، وأيقونات، وخطوط): من المحفوظ الأول.
 // - مابيلمسش localStorage خالص، فالتقدّم بتاع المواد بيفضل زي ما هو.
 // الأسامي فيها mustadrak-study لأن كل مواقع nooh-ibrahim.github.io بتتشارك نفس المخزن.
-const VERSION = 3;
+const VERSION = 4;
 const PREFIX = "mustadrak-study-";
 const SHELL = PREFIX + "v" + VERSION;
 const CONTENT = PREFIX + "content";
